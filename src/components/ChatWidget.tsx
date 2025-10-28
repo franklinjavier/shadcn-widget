@@ -64,10 +64,9 @@ export default function ChatWidget() {
       {!isOpen && (
         <Button
           onClick={() => setIsOpen(true)}
-          size="lg"
           className="h-14 w-14 rounded-full shadow-lg hover:shadow-xl transition-all"
         >
-          <MessageCircle className="h-6 w-6" />
+          <MessageCircle className="h-6 w-6 text-white" />
         </Button>
       )}
 

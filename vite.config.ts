@@ -1,16 +1,17 @@
 import path from 'path';
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
+import { widgetConfigPlugin } from './src/plugins/widget-config';
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), widgetConfigPlugin()],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
     },
   },
   optimizeDeps: {
-    exclude: ['lucide-react'],
+    include: ['lucide-react'],
   },
   build: {
     rollupOptions: {

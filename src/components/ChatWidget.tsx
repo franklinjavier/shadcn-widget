@@ -1,13 +1,13 @@
+import { MessageCircle, Send, X } from 'lucide-react';
 import { useState } from 'react';
-import { MessageCircle, X, Send, Paperclip } from 'lucide-react';
 import { Button } from './ui/button';
-import { ScrollArea } from './ui/scroll-area';
 import {
   InputGroup,
-  InputGroupTextarea,
   InputGroupAddon,
   InputGroupButton,
+  InputGroupTextarea,
 } from './ui/input-group';
+import { ScrollArea } from './ui/scroll-area';
 
 interface Message {
   id: string;
@@ -85,9 +85,7 @@ export default function ChatWidget() {
             </div>
             <Button
               onClick={() => setIsOpen(false)}
-              variant="ghost"
-              size="icon"
-              className="h-8 w-8 text-white hover:bg-white/10"
+              className="text-white hover:bg-white/10"
             >
               <X className="h-5 w-5" />
             </Button>
@@ -98,16 +96,14 @@ export default function ChatWidget() {
               {messages.map((message) => (
                 <div
                   key={message.id}
-                  className={`flex ${
-                    message.sender === 'user' ? 'justify-end' : 'justify-start'
-                  }`}
+                  className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'
+                    }`}
                 >
                   <div
-                    className={`max-w-[75%] rounded-2xl px-4 py-2.5 ${
-                      message.sender === 'user'
-                        ? 'bg-slate-900 text-white'
-                        : 'bg-slate-100 text-slate-900'
-                    }`}
+                    className={`max-w-[75%] rounded-2xl px-4 py-2.5 ${message.sender === 'user'
+                      ? 'bg-slate-900 text-white'
+                      : 'bg-slate-100 text-slate-900'
+                      }`}
                   >
                     <p className="text-sm leading-relaxed">{message.text}</p>
                     <span className="text-[10px] opacity-60 mt-1 block">
@@ -133,16 +129,7 @@ export default function ChatWidget() {
               />
               <InputGroupAddon align="block-end" className="flex-row">
                 <InputGroupButton
-                  variant="ghost"
-                  size="icon-xs"
-                  onClick={() => {}}
-                  type="button"
-                >
-                  <Paperclip className="h-4 w-4" />
-                </InputGroupButton>
-                <InputGroupButton
                   variant="default"
-                  size="icon-xs"
                   onClick={handleSend}
                   disabled={!inputValue.trim()}
                   type="button"
